@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muhammad Ibrahim — Software Engineer & Full-Stack Product Builder</title>
+  <meta name="description" content="Portfolio of Muhammad Ibrahim — Software Engineering Student, Full-Stack Web & Mobile Developer, and AI-Assisted Product Builder based in Abbottabad, Pakistan." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            midnight: {
+              950: '#06080F',
+              900: '#0B0F19',
+              800: '#111827',
+              700: '#1E293B',
+            },
+            accent: {
+              indigo: '#6366F1',
+              violet: '#8B5CF6',
+              emerald: '#10B981',
+              amber: '#F59E0B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #06080F;
+      color: #F8FAFC;
+      font-family: 'Inter', sans-serif;
+    }
+    .glass-card {
+      background: rgba(17, 24, 39, 0.72);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card-hover {
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card-hover:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px -10px rgba(99, 102, 241, 0.18);
+    }
+    .grid-bg {
+      background-image: radial-gradient(rgba(99, 102, 241, 0.12) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #06080F;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1E293B;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #334155;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-indigo-500 selection:text-white grid-bg">
+
+  <!-- TOP NAVIGATION -->
+  <header class="sticky top-0 z-50 border-b border-white/10 bg-[#06080F]/85 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-3 group">
+        <div class="w-9 h-9 rounded-lg bg-indigo-600/20 border border-indigo-500/40 flex items-center justify-center font-mono font-bold text-indigo-400 group-hover:bg-indigo-600 group-hover:text-white transition">
+          MI
+        </div>
+        <div>
+          <span class="font-bold tracking-tight text-white block leading-none">Muhammad Ibrahim</span>
+          <span class="text-[11px] font-mono text-slate-400">Full-Stack &amp; Mobile Engineer</span>
+        </div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-300">
+        <a href="#about" class="hover:text-white transition">About</a>
+        <a href="#skills" class="hover:text-white transition">Skills</a>
+        <a href="#projects" class="hover:text-white transition">Projects</a>
+        <a href="#businesses" class="hover:text-white transition">Businesses &amp; Media</a>
+        <a href="#infrastructure" class="hover:text-white transition">Infrastructure</a>
+        <a href="#education" class="hover:text-white transition">Education</a>
+        <a href="#contact" class="hover:text-white transition">Contact</a>
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a href="https://github.com/min955379-glitch" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg border border-white/15 bg-white/5 hover:bg-white/10 text-xs font-mono text-slate-200 transition flex items-center gap-2">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://wa.me/923485581969" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-xs font-medium text-white transition">
+          Hire / Contact
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO & ABOUT SECTION -->
+  <section id="top" class="relative pt-16 pb-20 md:pt-24 md:pb-28 overflow-hidden border-b border-white/10">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[750px] h-[350px] bg-indigo-600/15 blur-[130px] pointer-events-none rounded-full"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs font-mono mb-6">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        Abbottabad, Pakistan · English / Urdu · Available for freelance projects
+      </div>
+
+      <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
+        Muhammad Ibrahim
+      </h1>
+      <p class="mt-4 text-lg sm:text-2xl font-medium text-indigo-300 max-w-4xl">
+        Software Engineering Student · Full-Stack Web &amp; Mobile Developer · AI-Assisted Product Builder
+      </p>
+
+      <div id="about" class="mt-6 max-w-3xl text-slate-300 text-base sm:text-lg leading-relaxed space-y-4">
+        <p>
+          I design, build and ship real products end to end: learning platforms, e-commerce stores, mobile apps, client business websites and media content. My working style is practical and delivery-focused. Every project below is real, most are live, and each one was planned, built, tested, deployed and verified, not just drafted.
+        </p>
+      </div>
+
+      <!-- Core Stack Pills -->
+      <div class="mt-8 pt-6 border-t border-white/10">
+        <div class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-3">Core Stack</div>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1.5 rounded-md bg-slate-900 border border-white/10 text-xs font-mono text-slate-200">Next.js</span>
+          <span class="px-3 py-1.5 rounded-md bg-slate-900 border border-white/10 text-xs font-mono text-slate-200">React</span>
+          <span class="px-3 py-1.5 rounded-md bg-slate-900 border border-white/10 text-xs font-mono text-slate-200">TypeScript</span>
+          <span class="px-3 py-1.5 rounded-md bg-slate-900 border border-white/10 text-xs font-mono text-slate-200">Supabase (PostgreSQL)</span>
+          <span class="px-3 py-1.5 rounded-md bg-slate-900 border border-white/10 text-xs font-mono text-slate-200">React Native / Expo</span>
+          <span class="px-3 py-1.5 rounded-md bg-slate-900 border border-white/10 text-xs font-mono text-slate-200">Vercel</span>
+          <span class="px-3 py-1.5 rounded-md bg-slate-900 border border-white/10 text-xs font-mono text-slate-200">GitHub Actions</span>
+          <span class="px-3 py-1.5 rounded-md bg-slate-900 border border-white/10 text-xs font-mono text-slate-200">Python</span>
+          <span class="px-3 py-1.5 rounded-md bg-slate-900 border border-white/10 text-xs font-mono text-slate-200">Blender</span>
+        </div>
+      </div>
+
+      <!-- Quick Live Deployment Links Bar -->
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="https://my-english-practice-three.vercel.app" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-medium text-sm transition flex items-center gap-2">
+          <span>Live: My English Practice</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        </a>
+        <a href="https://blue-peak-store.vercel.app" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg bg-white/10 hover:bg-white/15 border border-white/15 text-white font-medium text-sm transition flex items-center gap-2">
+          <span>Live: Blue Peak Store</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        </a>
+        <a href="https://review-nudge-alpha.vercel.app" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg bg-white/10 hover:bg-white/15 border border-white/15 text-white font-medium text-sm transition flex items-center gap-2">
+          <span>Live: ReviewNudge</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        </a>
+        <a href="https://github.com/min955379-glitch/DailyMB/releases/download/apk-build/DailyMB.apk" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/30 border border-emerald-500/40 text-emerald-300 font-medium text-sm transition flex items-center gap-2">
+          <span>Download DailyMB APK</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>
+        </a>
+      </div>
+
+      <!-- PORTFOLIO AT A GLANCE -->
+      <div class="mt-14">
+        <h2 class="text-xs font-mono uppercase tracking-widest text-indigo-400 mb-4">Portfolio at a glance</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="glass-card p-5 rounded-xl">
+            <div class="text-2xl font-bold text-white font-mono">7 <span class="text-sm font-normal text-slate-400">(+1 university repo)</span></div>
+            <div class="text-sm text-slate-300 mt-1">GitHub repositories</div>
+          </div>
+          <div class="glass-card p-5 rounded-xl">
+            <div class="text-2xl font-bold text-white font-mono">3</div>
+            <div class="text-sm text-slate-300 mt-1">Live Vercel projects</div>
+          </div>
+          <div class="glass-card p-5 rounded-xl">
+            <div class="text-2xl font-bold text-white font-mono">6 <span class="text-sm font-normal text-slate-400">(2 active prod)</span></div>
+            <div class="text-sm text-slate-300 mt-1">Supabase cloud projects (others paused/archived)</div>
+          </div>
+          <div class="glass-card p-5 rounded-xl">
+            <div class="text-2xl font-bold text-white font-mono">2 <span class="text-sm font-normal text-slate-400">(DailyMB, Terrastep)</span></div>
+            <div class="text-sm text-slate-300 mt-1">Mobile apps shipped</div>
+          </div>
+          <div class="glass-card p-5 rounded-xl">
+            <div class="text-2xl font-bold text-white font-mono">4+</div>
+            <div class="text-sm text-slate-300 mt-1">Client / business websites</div>
+          </div>
+          <div class="glass-card p-5 rounded-xl">
+            <div class="text-2xl font-bold text-indigo-400 font-mono">408 items</div>
+            <div class="text-sm text-slate-300 mt-1">13 levels · 24 phonics patterns in flagship learning platform</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL SKILLS SECTION -->
+  <section id="skills" class="py-20 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="text-xs font-mono uppercase tracking-widest text-indigo-400">Capabilities &amp; Engineering Depth</div>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-white">Professional Skills</h2>
+        <p class="mt-3 text-slate-400 text-base">
+          Full-lifecycle product engineering covering modern web frameworks, cloud relational databases, Android build automation, 3D rendering pipelines, and structured AI workflows.
+        </p>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- 1. Frontend development -->
+        <div class="glass-card glass-card-hover p-6 rounded-2xl">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+            <h3 class="text-lg font-bold text-white">Frontend development</h3>
+            <span class="text-xs font-mono text-indigo-400 px-2.5 py-1 rounded bg-indigo-500/10">UI / Web</span>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-300 leading-relaxed">
+            <li class="flex gap-2.5"><span class="text-indigo-400 font-mono">01.</span><span><strong class="text-white">Next.js (App Router, v14 and v16)</strong> with React 19 and TypeScript: server and client components, API routes, dynamic routing, sitemaps and robots, SEO-friendly page structure.</span></li>
+            <li class="flex gap-2.5"><span class="text-indigo-400 font-mono">02.</span><span><strong class="text-white">Tailwind CSS v4</strong> and hand-written CSS design systems: calm light themes, full dark themes with class-based toggling (System / Light / Dark with saved preference and no flash on load), responsive layouts for mobile and desktop.</span></li>
+            <li class="flex gap-2.5"><span class="text-indigo-400 font-mono">03.</span><span><strong class="text-white">Accessible, keyboard-friendly UI:</strong> custom dropdowns and controls that work on touch and desktop, visible focus states, correct contrast in both themes.</span></li>
+            <li class="flex gap-2.5"><span class="text-indigo-400 font-mono">04.</span><span><strong class="text-white">Progressive web features:</strong> service workers, offline-capable practice flows, IndexedDB local storage with per-letter checkpoints and session resume.</span></li>
+          </ul>
+        </div>
+
+        <!-- 2. Backend, databases and cloud -->
+        <div class="glass-card glass-card-hover p-6 rounded-2xl">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+            <h3 class="text-lg font-bold text-white">Backend, databases and cloud</h3>
+            <span class="text-xs font-mono text-emerald-400 px-2.5 py-1 rounded bg-emerald-500/10">Data / Cloud</span>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-300 leading-relaxed">
+            <li class="flex gap-2.5"><span class="text-emerald-400 font-mono">01.</span><span><strong class="text-white">Supabase:</strong> PostgreSQL schema design, SQL migrations (Drizzle ORM and raw SQL), Row Level Security (RLS) with admin allowlists, Supabase Auth, public Storage buckets with admin-only write policies, Edge Functions (Deno) with rate limiting and secret management, pg_cron scheduled jobs, cross-source data verification pipelines.</span></li>
+            <li class="flex gap-2.5"><span class="text-emerald-400 font-mono">02.</span><span><strong class="text-white">Turso / libSQL</strong> database integration for serverless deployments.</span></li>
+            <li class="flex gap-2.5"><span class="text-emerald-400 font-mono">03.</span><span><strong class="text-white">REST API design,</strong> health and readiness endpoints, environment-variable configuration across local, preview and production.</span></li>
+            <li class="flex gap-2.5"><span class="text-emerald-400 font-mono">04.</span><span><strong class="text-white">Database backup and restore discipline:</strong> full exports (tables, storage files, auth users, config) taken before any destructive change.</span></li>
+          </ul>
+        </div>
+
+        <!-- 3. Mobile development -->
+        <div class="glass-card glass-card-hover p-6 rounded-2xl">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+            <h3 class="text-lg font-bold text-white">Mobile development</h3>
+            <span class="text-xs font-mono text-violet-400 px-2.5 py-1 rounded bg-violet-500/10">Android / Expo</span>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-300 leading-relaxed">
+            <li class="flex gap-2.5"><span class="text-violet-400 font-mono">01.</span><span><strong class="text-white">React Native with Expo and TypeScript:</strong> multi-screen apps with tab navigation, state management (Zustand), data fetching (React Query), local persistence (AsyncStorage).</span></li>
+            <li class="flex gap-2.5"><span class="text-violet-400 font-mono">02.</span><span><strong class="text-white">Android release builds through GitHub Actions</strong> with signed APK output published to GitHub Releases, verified by package inspection before delivery.</span></li>
+            <li class="flex gap-2.5"><span class="text-violet-400 font-mono">03.</span><span><strong class="text-white">Native Android features:</strong> customisable scheduled notifications with a native time picker, accessibility-service based automation (opt-in, off by default).</span></li>
+          </ul>
+        </div>
+
+        <!-- 4. DevOps and deployment -->
+        <div class="glass-card glass-card-hover p-6 rounded-2xl">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+            <h3 class="text-lg font-bold text-white">DevOps and deployment</h3>
+            <span class="text-xs font-mono text-amber-400 px-2.5 py-1 rounded bg-amber-500/10">CI/CD &amp; Hosting</span>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-300 leading-relaxed">
+            <li class="flex gap-2.5"><span class="text-amber-400 font-mono">01.</span><span><strong class="text-white">GitHub:</strong> repository management, multi-file pushes, web uploads for large files, Actions CI workflows for tests and APK builds.</span></li>
+            <li class="flex gap-2.5"><span class="text-amber-400 font-mono">02.</span><span><strong class="text-white">Vercel:</strong> production deployments from Git commits, project domains and aliases, framework detection for Next.js, static and full-stack hosting.</span></li>
+            <li class="flex gap-2.5"><span class="text-amber-400 font-mono">03.</span><span><strong class="text-white">WordPress and Shopify:</strong> store setup, product catalogues, collections, support pages and theme styling.</span></li>
+          </ul>
+        </div>
+
+        <!-- 5. Programming and automation -->
+        <div class="glass-card glass-card-hover p-6 rounded-2xl">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+            <h3 class="text-lg font-bold text-white">Programming and automation</h3>
+            <span class="text-xs font-mono text-sky-400 px-2.5 py-1 rounded bg-sky-500/10">Code &amp; QA</span>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-300 leading-relaxed">
+            <li class="flex gap-2.5"><span class="text-sky-400 font-mono">01.</span><span><strong class="text-white">Python:</strong> automation scripts, file and data processing, PDF generation with ReportLab, custom tooling for repetitive production work.</span></li>
+            <li class="flex gap-2.5"><span class="text-sky-400 font-mono">02.</span><span><strong class="text-white">JavaScript / TypeScript</strong> across frontend, backend and test suites (unit tests, database tests, Playwright end-to-end and accessibility tests).</span></li>
+          </ul>
+        </div>
+
+        <!-- 6. 3D, video and media production -->
+        <div class="glass-card glass-card-hover p-6 rounded-2xl">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+            <h3 class="text-lg font-bold text-white">3D, video and media production</h3>
+            <span class="text-xs font-mono text-rose-400 px-2.5 py-1 rounded bg-rose-500/10">Blender &amp; FFmpeg</span>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-300 leading-relaxed">
+            <li class="flex gap-2.5"><span class="text-rose-400 font-mono">01.</span><span><strong class="text-white">Blender Python scripting:</strong> procedural models and materials, lathe-turned objects, subsurface scattering, compositor bloom and depth of field, character animation with named actions (idle, wave, walk, jump-spin), Cycles rendering on AMD GPU (HIP), written for his own workstation (Ryzen 5 3600 + RX 6600).</span></li>
+            <li class="flex gap-2.5"><span class="text-rose-400 font-mono">02.</span><span><strong class="text-white">Video pipelines:</strong> FFmpeg-based clipping of long podcasts into vertical 9:16 shorts with burned-in captions and loudness normalisation (-14 LUFS), Android-compatible output (H.264, AAC 48 kHz stereo).</span></li>
+            <li class="flex gap-2.5"><span class="text-rose-400 font-mono">03.</span><span><strong class="text-white">Image work:</strong> AI-assisted poster and brand design, photo upscaling, background removal and product-photo preparation.</span></li>
+          </ul>
+        </div>
+
+        <!-- 7. AI-assisted development workflow -->
+        <div class="glass-card glass-card-hover p-6 rounded-2xl">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+            <h3 class="text-lg font-bold text-white">AI-assisted development workflow</h3>
+            <span class="text-xs font-mono text-indigo-400 px-2.5 py-1 rounded bg-indigo-500/10">Agent Engineering</span>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-300 leading-relaxed">
+            <li class="flex gap-2.5"><span class="text-indigo-400 font-mono">01.</span><span>Directing specialised AI tools with structured, professional prompts: planning and research, code generation through an agent workflow, image generation in parallel tools with quality comparison, and independent verification of every output before it ships.</span></li>
+            <li class="flex gap-2.5"><span class="text-indigo-400 font-mono">02.</span><span>Treating AI output like a junior developer's work: review, test stills, build checks, live verification, and plain reporting of failures with the real cause.</span></li>
+          </ul>
+        </div>
+
+        <!-- 8. Business, content and digital services -->
+        <div class="glass-card glass-card-hover p-6 rounded-2xl">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+            <h3 class="text-lg font-bold text-white">Business, content and digital services</h3>
+            <span class="text-xs font-mono text-emerald-400 px-2.5 py-1 rounded bg-emerald-500/10">Commercial</span>
+          </div>
+          <ul class="space-y-3 text-sm text-slate-300 leading-relaxed">
+            <li class="flex gap-2.5"><span class="text-emerald-400 font-mono">01.</span><span>Founder of <strong class="text-white">Ibrahim Promo Studio</strong> (social media services for TikTok, Instagram and Facebook) with a quality-first supplier selection process and a weekly, fully prepared price-list and poster pack.</span></li>
+            <li class="flex gap-2.5"><span class="text-emerald-400 font-mono">02.</span><span>Founder of <strong class="text-white">Blue Peak</strong>, a women's stitched clothing brand and online store.</span></li>
+            <li class="flex gap-2.5"><span class="text-emerald-400 font-mono">03.</span><span>Client website work for local businesses, including a laptop retailer and gym/fitness businesses.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS SECTION -->
+  <section id="projects" class="py-20 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="text-xs font-mono uppercase tracking-widest text-indigo-400">Shipped &amp; Verified Work</div>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-white">Featured Projects</h2>
+        <p class="mt-3 text-slate-400 text-base">
+          Production web platforms, native Android applications, e-commerce stores, and client systems with live links and full repositories.
+        </p>
+      </div>
+
+      <!-- PROJECT 1: MY ENGLISH PRACTICE (FLAGSHIP) -->
+      <div class="mt-12 glass-card rounded-3xl p-6 sm:p-10 border border-indigo-500/30">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-6">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+              Flagship Project · 01
+            </span>
+            <h3 class="mt-3 text-2xl sm:text-3xl font-bold text-white">
+              My English Practice — English spelling and pronunciation platform
+            </h3>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <a href="https://my-english-practice-three.vercel.app" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-mono font-medium transition flex items-center gap-2">
+              <span>Live App (Vercel)</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </a>
+            <a href="https://github.com/min955379-glitch/My-English-Practice" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/15 border border-white/15 text-slate-200 text-xs font-mono transition flex items-center gap-2">
+              <span>GitHub Repository</span>
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <p class="mt-6 text-slate-300 text-base leading-relaxed">
+          A complete learning platform built for adult beginners whose spelling and reading are weak, starting with listening and small steps instead of fluent-reading assumptions.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-2">
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-white/10 text-xs font-mono text-indigo-300">Next.js 16</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-white/10 text-xs font-mono text-indigo-300">React 19</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-white/10 text-xs font-mono text-indigo-300">TypeScript</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-white/10 text-xs font-mono text-indigo-300">Tailwind CSS 4</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-white/10 text-xs font-mono text-indigo-300">Drizzle ORM</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-white/10 text-xs font-mono text-indigo-300">Supabase PostgreSQL</span>
+          <span class="px-2.5 py-1 rounded bg-slate-900 border border-white/10 text-xs font-mono text-indigo-300">Vercel</span>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-300">
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-slate-900/70 border border-white/5">
+              <strong class="text-white block mb-1">Content Architecture</strong>
+              13 fully open levels, 408 practice items (Levels 1-7 with 30 items each, Levels 8-13 with 33 each), 24 phonics patterns, six study guides, a weekly planner and a learning hub.
+            </div>
+            <div class="p-4 rounded-xl bg-slate-900/70 border border-white/5">
+              <strong class="text-white block mb-1">Core Drill Mechanics</strong>
+              Hear a word at normal and slow speed, spell it letter by letter; a wrong letter turns red with a clear message and must be fixed before continuing; a hint ladder (slow replay, first letter, syllable breakdown) opens after repeated mistakes.
+            </div>
+            <div class="p-4 rounded-xl bg-slate-900/70 border border-white/5">
+              <strong class="text-white block mb-1">Learning Science</strong>
+              Mistakes retry in the same session, return the next day, and follow an adapted FSRS-style schedule; mastery needs independent success on separate days.
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="p-4 rounded-xl bg-slate-900/70 border border-white/5">
+              <strong class="text-white block mb-1">Platform Features</strong>
+              Dark midnight theme with System / Light / Dark toggle, female/male British voice preference applied to all speech, pronunciation and reading-aloud practice, optional microphone check used as a hint (never a strict grade), progress dashboard calculated from real saved attempts, offline-capable drills, progress export/import and cloud sync for signed-in sessions.
+            </div>
+            <div class="p-4 rounded-xl bg-emerald-950/30 border border-emerald-500/30">
+              <strong class="text-emerald-300 block mb-1">Verification &amp; Testing Suite</strong>
+              Lint, type checking and production build pass; 40 unit/database/API tests and 56 browser tests pass.
+            </div>
+          </div>
+        </div>
+
+        <!-- DARK MODE SCREENSHOTS SHOWCASE (Strict Dark Mode Only) -->
+        <div class="mt-10 pt-8 border-t border-white/10">
+          <div class="flex items-center justify-between mb-6">
+            <div>
+              <h4 class="text-base font-bold text-white">Dark Mode Mobile Interface Previews</h4>
+              <p class="text-xs text-slate-400">Midnight Dark Theme — Home &amp; Curriculum Overview + Practice Preferences &amp; Voice/Data Settings</p>
+            </div>
+            <span class="text-xs font-mono px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-white/10">Dark Theme Verified</span>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+            <!-- Screenshot 1: Mobile Dark Home & Practice Flow -->
+            <div class="rounded-2xl bg-[#0B0F1E] border border-indigo-500/30 p-5 shadow-2xl">
+              <div class="flex items-center justify-between pb-3 mb-4 border-b border-white/10">
+                <span class="text-xs font-mono text-indigo-300">my-english-practice-mobile-dark.jpg</span>
+                <span class="text-[11px] font-mono text-slate-400">Mobile Dark Home &amp; 13 Levels</span>
+              </div>
+
+              <!-- Attempts to load local attached dark screenshot; falls back seamlessly to exact faithful dark UI replica -->
+              <img src="my-english-practice-mobile-dark.jpg" alt="My English Practice Mobile Dark Home Screenshot" class="w-full rounded-xl border border-white/10 mb-4 hidden" onload="this.classList.remove('hidden'); this.nextElementSibling.classList.add('hidden');" />
+
+              <!-- Faithful Interactive Replica of Attached Dark Screenshot 1 -->
+              <div class="rounded-xl bg-[#0D1224] border border-white/10 p-4 text-xs space-y-4 font-sans">
+                <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                  <div class="flex items-center gap-2 font-bold text-white">
+                    <span class="px-1.5 py-0.5 rounded bg-indigo-600/30 border border-indigo-400/30 text-[10px]">Book</span>
+                    <span>My English Practice</span>
+                  </div>
+                  <div class="flex gap-2 text-[10px] text-slate-400">
+                    <span>Practice</span><span>Explore</span><span>Phonics</span><span>My plan</span><span>My progress</span>
+                  </div>
+                </div>
+
+                <div class="space-y-2">
+                  <div class="text-[10px] font-mono uppercase tracking-wider text-indigo-300">British English · Adult Step-by-Step</div>
+                  <div class="text-xl font-extrabold text-white leading-tight">A little practice.<br/>A little more confidence.</div>
+                  <p class="text-slate-400 text-[11px]">Listen to a word. Spell it one letter at a time. Build your English with calm, everyday practice — no rush, no test, always at your speed.</p>
+                  <div class="pt-1">
+                    <span class="inline-block px-3 py-1.5 rounded-lg bg-indigo-600 text-white font-semibold text-[11px]">Start practising &rarr;</span>
+                  </div>
+                </div>
+
+                <!-- Interactive Spelling Drill Card from Screenshot 1 -->
+                <div class="rounded-xl bg-[#131B33] border border-indigo-500/30 p-3.5 space-y-3">
+                  <div class="flex justify-between items-center text-[10px] text-slate-400">
+                    <span>PRACTICE SCREEN · LEVEL 1</span>
+                    <span class="px-2 py-0.5 rounded bg-indigo-950 text-indigo-300">1 of 30</span>
+                  </div>
+                  <div class="text-center py-2">
+                    <div class="text-slate-300 text-[11px]">Listen. Take your time.</div>
+                    <div class="flex justify-center gap-2 mt-3">
+                      <span class="w-8 h-9 rounded bg-[#1B2546] border border-indigo-400/40 flex items-center justify-center font-mono font-bold text-white">C</span>
+                      <span class="w-8 h-9 rounded bg-[#1B2546] border border-indigo-400/40 flex items-center justify-center font-mono font-bold text-white">A</span>
+                      <span class="w-8 h-9 rounded bg-[#1B2546] border border-indigo-400/40 flex items-center justify-center font-mono font-bold text-white">T</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Stats pills in Screenshot 1 -->
+                <div class="grid grid-cols-3 gap-2">
+                  <div class="p-2.5 rounded-lg bg-[#131B33] border border-white/5">
+                    <div class="font-bold text-white">13</div>
+                    <div class="text-[10px] text-slate-400">open learning levels</div>
+                  </div>
+                  <div class="p-2.5 rounded-lg bg-[#131B33] border border-white/5">
+                    <div class="font-bold text-white">408</div>
+                    <div class="text-[10px] text-slate-400">words &amp; phrases</div>
+                  </div>
+                  <div class="p-2.5 rounded-lg bg-[#131B33] border border-white/5">
+                    <div class="font-bold text-white">en-GB</div>
+                    <div class="text-[10px] text-slate-400">British audio</div>
+                  </div>
+                </div>
+
+                <!-- 13 Levels Grid Preview from Screenshot 1 -->
+                <div class="space-y-1.5">
+                  <div class="text-[10px] font-mono uppercase text-slate-400">From small words to everyday conversations (13 Levels)</div>
+                  <div class="grid grid-cols-2 gap-1.5 text-[10px]">
+                    <div class="p-2 rounded bg-[#131B33] text-slate-200">01. Short vowel words</div>
+                    <div class="p-2 rounded bg-[#131B33] text-slate-200">02. Short &amp; long vowels</div>
+                    <div class="p-2 rounded bg-[#131B33] text-slate-200">03. Double consonants</div>
+                    <div class="p-2 rounded bg-[#131B33] text-slate-200">04. Common digraphs</div>
+                    <div class="p-2 rounded bg-[#131B33] text-slate-200">05. Consonant blends</div>
+                    <div class="p-2 rounded bg-[#131B33] text-slate-200">06. Syllables &amp; rhythm</div>
+                    <div class="p-2 rounded bg-[#131B33] text-slate-200">07. Tricky spellings</div>
+                    <div class="p-2 rounded bg-[#131B33] text-slate-200">08. Word roots &amp; prefixes</div>
+                    <div class="p-2 rounded bg-[#131B33] text-slate-200">09. Office &amp; workplace</div>
+                    <div class="p-2 rounded bg-[#131B33] text-slate-200">10. Longer silent letters</div>
+                    <div class="p-2 rounded bg-[#131B33] text-slate-200">11. Everyday sentences</div>
+                    <div class="p-2 rounded bg-[#131B33] text-slate-200">12. Professional vocabulary</div>
+                  </div>
+                  <div class="p-2 rounded bg-[#131B33] text-slate-200 text-[10px]">13. Advanced phrases &amp; sentences</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Screenshot 2: Mobile Dark Settings & Preferences Screen -->
+            <div class="rounded-2xl bg-[#0B0F1E] border border-indigo-500/30 p-5 shadow-2xl">
+              <div class="flex items-center justify-between pb-3 mb-4 border-b border-white/10">
+                <span class="text-xs font-mono text-indigo-300">mobile-dark-settings.png</span>
+                <span class="text-[11px] font-mono text-slate-400">Mobile Dark Preferences &amp; Privacy</span>
+              </div>
+
+              <!-- Attempts to load local attached dark screenshot; falls back seamlessly to exact faithful dark UI replica -->
+              <img src="mobile-dark-settings.png" alt="My English Practice Mobile Dark Settings Screenshot" class="w-full rounded-xl border border-white/10 mb-4 hidden" onload="this.classList.remove('hidden'); this.nextElementSibling.classList.add('hidden');" />
+
+              <!-- Faithful Interactive Replica of Attached Dark Screenshot 2 -->
+              <div class="rounded-xl bg-[#0D1224] border border-white/10 p-4 text-xs space-y-4 font-sans">
+                <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                  <div class="flex items-center gap-2 font-bold text-white">
+                    <span class="px-1.5 py-0.5 rounded bg-indigo-600/30 border border-indigo-400/30 text-[10px]">Book</span>
+                    <span>My English Practice</span>
+                  </div>
+                  <div class="flex gap-2 text-[10px] text-slate-400">
+                    <span>Moon</span><span>Settings</span>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="text-[10px] font-mono uppercase tracking-wider text-indigo-300">Make this space your own</div>
+                  <div class="text-lg font-extrabold text-white mt-0.5">Your practice, your preferences.</div>
+                  <p class="text-[11px] text-slate-400 mt-1">A comfortable routine. A voice you recognise. Progress that stays yours.</p>
+                </div>
+
+                <div class="rounded-xl bg-[#131B33] border border-white/10 p-3.5 space-y-3">
+                  <div class="font-bold text-white text-sm">Practice preferences</div>
+
+                  <div class="space-y-1">
+                    <label class="text-[11px] text-slate-300 font-medium">Theme</label>
+                    <div class="p-2 rounded-lg bg-[#0D1224] border border-indigo-500/40 text-white flex justify-between items-center">
+                      <span>System (System / Light / Dark)</span>
+                      <span class="text-indigo-400">&#10003;</span>
+                    </div>
+                  </div>
+
+                  <div class="space-y-1">
+                    <label class="text-[11px] text-slate-300 font-medium">Daily practice goal</label>
+                    <div class="p-2 rounded-lg bg-[#0D1224] border border-white/10 text-white">20 minutes</div>
+                  </div>
+
+                  <div class="space-y-1">
+                    <label class="text-[11px] text-slate-300 font-medium">Voice</label>
+                    <div class="p-2 rounded-lg bg-[#0D1224] border border-white/10 text-white">Female (British English)</div>
+                  </div>
+
+                  <div class="space-y-1">
+                    <label class="text-[11px] text-slate-300 font-medium">Slow playback speed</label>
+                    <div class="p-2 rounded-lg bg-[#0D1224] border border-white/10 text-white">Gentle (recommended)</div>
+                  </div>
+
+                  <div class="pt-1">
+                    <div class="w-full py-2 rounded-lg bg-[#1B2546] border border-white/10 text-center text-white font-medium">Try this voice</div>
+                  </div>
+                </div>
+
+                <div class="rounded-xl bg-[#131B33] border border-white/10 p-3.5 space-y-2">
+                  <div class="font-bold text-white">Private practice &amp; Keep a copy of your progress</div>
+                  <p class="text-[11px] text-slate-400">All levels and practice tools work without an account. Export your attempts, sessions and review schedule, or import on another device.</p>
+                  <div class="grid grid-cols-2 gap-2 pt-1">
+                    <div class="py-1.5 rounded bg-[#0D1224] border border-white/10 text-center text-slate-200">Export progress</div>
+                    <div class="py-1.5 rounded bg-[#0D1224] border border-white/10 text-center text-slate-200">Import progress</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OTHER FEATURED PROJECTS GRID (Projects 2 to 6) -->
+      <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+        <!-- PROJECT 2: DAILYMB -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
+              <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider">Project 02 · Android &amp; Cloud Backend</span>
+              <div class="flex flex-wrap gap-2">
+                <a href="https://github.com/min955379-glitch/DailyMB" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded bg-white/10 hover:bg-white/15 text-xs font-mono text-white transition">GitHub Repo</a>
+                <a href="https://github.com/min955379-glitch/DailyMB/releases/download/apk-build/DailyMB.apk" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded bg-emerald-600 hover:bg-emerald-500 text-xs font-mono text-white transition">Download APK</a>
+              </div>
+            </div>
+
+            <h3 class="mt-4 text-xl font-bold text-white">DailyMB — Android quiz helper app with a cloud backend</h3>
+            <p class="mt-2 text-sm text-slate-300 leading-relaxed">
+              An independent Android app that collects the day's five "Test Your Skills" quiz answers from public websites, cross-verifies them, and presents them in a clean dark interface.
+            </p>
+
+            <div class="mt-4 flex flex-wrap gap-1.5">
+              <span class="px-2 py-0.5 rounded bg-slate-900 border border-white/10 text-[11px] font-mono text-slate-300">Expo SDK 51</span>
+              <span class="px-2 py-0.5 rounded bg-slate-900 border border-white/10 text-[11px] font-mono text-slate-300">React Native 0.74</span>
+              <span class="px-2 py-0.5 rounded bg-slate-900 border border-white/10 text-[11px] font-mono text-slate-300">TypeScript</span>
+              <span class="px-2 py-0.5 rounded bg-slate-900 border border-white/10 text-[11px] font-mono text-slate-300">Zustand</span>
+              <span class="px-2 py-0.5 rounded bg-slate-900 border border-white/10 text-[11px] font-mono text-slate-300">React Query</span>
+              <span class="px-2 py-0.5 rounded bg-slate-900 border border-white/10 text-[11px] font-mono text-slate-300">Supabase (PostgreSQL, Edge Functions, pg_cron)</span>
+            </div>
+
+            <ul class="mt-5 space-y-2.5 text-xs text-slate-300 leading-relaxed">
+              <li><strong class="text-white">Backend:</strong> three scheduled fetches a day (00:05, 05:30 and 12:05 PKT); an answer is marked "verified" only when at least two independent sources agree on the same question text; uncertain answers are honestly labelled single-source.</li>
+              <li><strong class="text-white">App features:</strong> Home in short and full layouts, a streak system with data rewards at 5-day milestones (25 / 50 / 80 / 100 / 125 MB), 30-day history, settings, onboarding, a Check button with automatic re-check when the app returns to the foreground, and customisable notification times with a native time picker.</li>
+              <li><strong class="text-white">Engineering:</strong> the app ships with no database client and no login; it reads through a public read-only key and registers devices through a rate-limited Edge Function. Builds run in GitHub Actions and publish the APK to a GitHub Release. Test suite: Jest, fully passing, with strict TypeScript and lint clean.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- PROJECT 3: BLUE PEAK -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
+              <span class="text-xs font-mono text-amber-400 uppercase tracking-wider">Project 03 · E-Commerce &amp; Own Brand</span>
+              <div class="flex flex-wrap gap-2">
+                <a href="https://blue-peak-store.vercel.app" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded bg-indigo-600 hover:bg-indigo-500 text-xs font-mono text-white transition">Live Store</a>
+                <a href="https://blue-peak-store-min955379-6910.vercel.app" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded bg-white/10 hover:bg-white/15 text-xs font-mono text-slate-200 transition">Mirror URL</a>
+                <a href="https://github.com/min955379-glitch/Blue-Peak-store" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded bg-white/10 hover:bg-white/15 text-xs font-mono text-white transition">GitHub</a>
+              </div>
+            </div>
+
+            <h3 class="mt-4 text-xl font-bold text-white">Blue Peak — women's stitched clothing store (own brand)</h3>
+            <p class="mt-2 text-sm text-slate-300 leading-relaxed">
+              A complete online store for a women's ready-to-wear brand, modelled on large Pakistani fashion retailers.
+            </p>
+
+            <div class="mt-3 flex flex-wrap gap-2 text-xs font-mono">
+              <a href="https://bluepeak8.wordpress.com" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:underline">WordPress: bluepeak8.wordpress.com &nearr;</a>
+              <span class="text-slate-600">|</span>
+              <span class="text-slate-300">Shopify: zvkeh6-0v.myshopify.com (12 products active)</span>
+            </div>
+
+            <ul class="mt-5 space-y-2.5 text-xs text-slate-300 leading-relaxed">
+              <li><strong class="text-white">Catalogue:</strong> 12 products across Women's Stitched, Co-ord Sets, 3PC and 2PC collections; sizes XS-XXL; PKR pricing from 2,845 to 10,495 with was-prices and per-size stock; Cash on Delivery across Pakistan with WhatsApp checkout (03485581969).</li>
+              <li><strong class="text-white">Admin portal:</strong> a hidden /admin page protected by Supabase Auth and an admin allowlist enforced by RLS. The owner edits products, uploads photos directly (three photo slots per product, automatic resizing, stored in Supabase Storage), views orders and moves them through new, confirmed, dispatched, delivered and cancelled.</li>
+              <li><strong class="text-white">Design:</strong> professional black theme with pink and gold accents, product galleries and detail views, search and size filters, shopping bag.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- PROJECT 4: NEXTGEN LAPTOPS -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-4">
+              <span class="text-xs font-mono text-sky-400 uppercase tracking-wider">Project 04 · Client Business Website</span>
+              <span class="px-2.5 py-1 rounded bg-sky-500/10 text-sky-300 text-xs font-mono">Vercel + Turso (libSQL)</span>
+            </div>
+
+            <h3 class="mt-4 text-xl font-bold text-white">NextGen Laptops, Abbottabad — client business website</h3>
+            <p class="mt-2 text-sm text-slate-300 leading-relaxed">
+              A full website for a laptop shop in Jadoon Plaza Phase 2, Mansehra Road, Mandian, Abbottabad, built from the shop's public information and rebuilt to an Apple-style soft, light, minimal design.
+            </p>
+
+            <ul class="mt-5 space-y-2.5 text-xs text-slate-300 leading-relaxed">
+              <li><strong class="text-white">Content:</strong> HP EliteBook 830 G7, Dell Latitude 5420 / 5490 / 7400 2-in-1 / 5520 and Microsoft Surface Laptop, using official manufacturer photos prepared as transparent cutouts with soft shadows that also work in dark mode.</li>
+              <li><strong class="text-white">Admin:</strong> a clean hidden /admin panel (no public link) where the shop edits its name, WhatsApp and call numbers, location, socials, deals with images, services, testimonials, FAQs and homepage settings; edits verified live.</li>
+              <li><strong class="text-white">Hosting:</strong> moved to a fully free Vercel + Turso (libSQL) setup so admin edits persist without any hosting fee.</li>
+              <li><strong class="text-white">Shop socials:</strong> Instagram @nextgen_laptops_abbottabad · TikTok @nextgen_5.6 · WhatsApp 0321-5744034</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- PROJECT 5 & 6: REVIEWNUDGE & TERRASTEP -->
+        <div class="space-y-6">
+          <!-- Project 5: ReviewNudge -->
+          <div class="glass-card glass-card-hover rounded-2xl p-6">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
+              <span class="text-xs font-mono text-violet-400 uppercase tracking-wider">Project 05 · SaaS Product</span>
+              <div class="flex gap-2">
+                <a href="https://review-nudge-alpha.vercel.app" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded bg-indigo-600 hover:bg-indigo-500 text-xs font-mono text-white transition">Live App</a>
+                <a href="https://github.com/min955379-glitch/ReviewNudge" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded bg-white/10 hover:bg-white/15 text-xs font-mono text-white transition">GitHub Repo</a>
+              </div>
+            </div>
+            <h3 class="mt-3 text-lg font-bold text-white">ReviewNudge — review reminder product</h3>
+            <p class="mt-1.5 text-xs text-slate-300 leading-relaxed">
+              <strong class="text-white">Stack:</strong> Next.js, TypeScript, Supabase. A documented product build with README, roadmap, product requirements, architecture, design and phase plans maintained in the repository.
+            </p>
+          </div>
+
+          <!-- Project 6: Terrastep -->
+          <div class="glass-card glass-card-hover rounded-2xl p-6">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
+              <span class="text-xs font-mono text-emerald-400 uppercase tracking-wider">Project 06 · Android Fitness Game</span>
+              <a href="https://github.com/NematUllah9812/FYP-" target="_blank" rel="noopener noreferrer" class="px-3 py-1 rounded bg-white/10 hover:bg-white/15 text-xs font-mono text-white transition">University Repo</a>
+            </div>
+            <h3 class="mt-3 text-lg font-bold text-white">Terrastep — Android fitness territory game (university project)</h3>
+            <p class="mt-1.5 text-xs text-slate-300 leading-relaxed">
+              Built from a 33-page product blueprint: an Android fitness game where walking captures territory. All four planned stages were completed, pushed to GitHub, and a debug APK was produced through cloud CI.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. MORE REPOSITORIES -->
+      <div class="mt-8 glass-card rounded-2xl p-6 sm:p-8">
+        <h3 class="text-lg font-bold text-white mb-4">7. More Repositories &amp; Cloud Experiments</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <a href="https://github.com/min955379-glitch/Mental-Maths-Practice-" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900/80 border border-white/10 hover:border-indigo-500/40 transition block">
+            <div class="font-mono font-bold text-white flex items-center justify-between">
+              <span>Mental Maths Practice</span>
+              <span>&nearr;</span>
+            </div>
+            <div class="text-indigo-400 font-mono mt-1">JavaScript</div>
+            <p class="text-slate-400 mt-2">Interactive rapid mental mathematics calculation and aptitude training tool.</p>
+          </a>
+
+          <a href="https://github.com/min955379-glitch/Fitness-pro-" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900/80 border border-white/10 hover:border-indigo-500/40 transition block">
+            <div class="font-mono font-bold text-white flex items-center justify-between">
+              <span>Fitness Pro</span>
+              <span>&nearr;</span>
+            </div>
+            <div class="text-indigo-400 font-mono mt-1">TypeScript · Supabase</div>
+            <p class="text-slate-400 mt-2">Fitness business website work, backed by the town-fitness-point Supabase project.</p>
+          </a>
+
+          <a href="https://github.com/min955379-glitch/genvexa" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900/80 border border-white/10 hover:border-indigo-500/40 transition block">
+            <div class="font-mono font-bold text-white flex items-center justify-between">
+              <span>Genvexa</span>
+              <span>&nearr;</span>
+            </div>
+            <div class="text-indigo-400 font-mono mt-1">JavaScript</div>
+            <p class="text-slate-400 mt-2">JavaScript web project maintained on GitHub.</p>
+          </a>
+
+          <div class="p-4 rounded-xl bg-slate-900/80 border border-white/10">
+            <div class="font-mono font-bold text-white">ARHMS AI Tool</div>
+            <div class="text-amber-400 font-mono mt-1">Supabase Project (Archived)</div>
+            <p class="text-slate-400 mt-2">An AI tool experiment backed by its own cloud database.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS, BUSINESSES & MEDIA PRODUCTION SECTION (No personal FB page) -->
+  <section id="businesses" class="py-20 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl">
+        <div class="text-xs font-mono uppercase tracking-widest text-indigo-400">Commercial Operations &amp; Media Engineering</div>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-white">Businesses &amp; Media Production</h2>
+        <p class="mt-3 text-slate-400 text-base">
+          Quality-first digital services, short-form broadcast audio/video clipping pipelines, and procedural 3D animation in Blender Python.
+        </p>
+      </div>
+
+      <div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Ibrahim Promo Studio -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8">
+          <div class="text-xs font-mono text-amber-400 uppercase tracking-wider">Social Media Services Business</div>
+          <h3 class="mt-2 text-xl font-bold text-white">Ibrahim Promo Studio</h3>
+          <p class="mt-3 text-sm text-slate-300 leading-relaxed">
+            A services business selling TikTok, Instagram and Facebook growth packages (followers, likes, views, comments, saves, reactions). Suppliers are selected quality-first: only Non-Drop services with a refill or guarantee of at least 30 days are ever listed, never the cheapest or the most expensive, and a fixed selling-price table keeps margins consistent.
+          </p>
+          <p class="mt-3 text-sm text-slate-300 leading-relaxed">
+            Every Tuesday a complete pack is produced: an internal Excel price list, a customer price list, and three premium square posters in a locked dark-and-gold design with the studio logo and WhatsApp contact (<a href="https://wa.me/923485581969" class="text-indigo-400 hover:underline font-mono">03485581969</a>).
+          </p>
+        </div>
+
+        <!-- Podcast and Video Clipping -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8">
+          <div class="text-xs font-mono text-emerald-400 uppercase tracking-wider">FFmpeg Broadcast Pipeline</div>
+          <h3 class="mt-2 text-xl font-bold text-white">Podcast and Video Clipping</h3>
+          <p class="mt-3 text-sm text-slate-300 leading-relaxed">
+            A complete short-form production run: a 67-minute podcast episode analysed and cut into four vertical clips (<strong class="text-white">1080x1920, H.264, AAC 48 kHz stereo, burned-in captions, -14 LUFS loudness</strong>) with a full publishing package of titles, descriptions and hashtags, delivered at full quality.
+          </p>
+          <div class="mt-5 pt-4 border-t border-white/10 flex flex-wrap gap-2 text-[11px] font-mono text-slate-300">
+            <span class="px-2 py-1 rounded bg-slate-900">9:16 Vertical</span>
+            <span class="px-2 py-1 rounded bg-slate-900">-14 LUFS Normalised</span>
+            <span class="px-2 py-1 rounded bg-slate-900">Burned-in Captions</span>
+          </div>
+        </div>
+
+        <!-- Blender Animation (Python) -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 sm:p-8">
+          <div class="text-xs font-mono text-rose-400 uppercase tracking-wider">3D Procedural Scripting · RX 6600</div>
+          <h3 class="mt-2 text-xl font-bold text-white">Blender Animation (Python)</h3>
+          <ul class="mt-3 space-y-3 text-sm text-slate-300 leading-relaxed">
+            <li>
+              <strong class="text-white">The Great Desktop Migration:</strong> a full scene animation script, verified running cleanly on Blender 5.2.2 with Cycles GPU rendering (about 4.9 seconds per frame on an RX 6600).
+            </li>
+            <li>
+              <strong class="text-white">First Light:</strong> a 15-second animation of a baby sprout blooming at sunrise, rebuilt in v2 with procedural node textures, subsurface scattering, a lathe-turned pot, denser leaf geometry, compositor bloom, camera depth of field and hill silhouettes.
+            </li>
+            <li>
+              <strong class="text-white">Sprocket:</strong> a clay-style robot character with four marker-based animations (IDLE, WAVE, WALK, JUMP-SPIN) in a vertical 720x1280 format.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOUD INFRASTRUCTURE SNAPSHOT -->
+  <section id="infrastructure" class="py-20 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <div class="text-xs font-mono uppercase tracking-widest text-indigo-400">Live Production Telemetry</div>
+          <h2 class="mt-2 text-3xl sm:text-4xl font-bold text-white">Cloud Infrastructure Snapshot</h2>
+        </div>
+        <span class="text-xs font-mono text-slate-400 px-3 py-1.5 rounded-lg bg-slate-900 border border-white/10">
+          Checked 15 October 2026
+        </span>
+      </div>
+
+      <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- GitHub Column -->
+        <div class="glass-card rounded-2xl p-6">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+            <h3 class="font-bold text-white">GitHub Repositories</h3>
+            <a href="https://github.com/min955379-glitch" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-indigo-400 hover:underline">min955379-glitch &nearr;</a>
+          </div>
+          <ul class="space-y-2.5 text-xs font-mono">
+            <li><a href="https://github.com/min955379-glitch/My-English-Practice" target="_blank" rel="noopener noreferrer" class="flex justify-between p-2 rounded bg-slate-900/70 hover:bg-slate-800 text-slate-200 transition"><span>My-English-Practice</span><span class="text-indigo-400">Repo &nearr;</span></a></li>
+            <li><a href="https://github.com/min955379-glitch/DailyMB" target="_blank" rel="noopener noreferrer" class="flex justify-between p-2 rounded bg-slate-900/70 hover:bg-slate-800 text-slate-200 transition"><span>DailyMB</span><span class="text-indigo-400">Repo &nearr;</span></a></li>
+            <li><a href="https://github.com/min955379-glitch/Blue-Peak-store" target="_blank" rel="noopener noreferrer" class="flex justify-between p-2 rounded bg-slate-900/70 hover:bg-slate-800 text-slate-200 transition"><span>Blue-Peak-store</span><span class="text-indigo-400">Repo &nearr;</span></a></li>
+            <li><a href="https://github.com/min955379-glitch/ReviewNudge" target="_blank" rel="noopener noreferrer" class="flex justify-between p-2 rounded bg-slate-900/70 hover:bg-slate-800 text-slate-200 transition"><span>ReviewNudge</span><span class="text-indigo-400">Repo &nearr;</span></a></li>
+            <li><a href="https://github.com/min955379-glitch/Fitness-pro-" target="_blank" rel="noopener noreferrer" class="flex justify-between p-2 rounded bg-slate-900/70 hover:bg-slate-800 text-slate-200 transition"><span>Fitness-pro-</span><span class="text-indigo-400">Repo &nearr;</span></a></li>
+            <li><a href="https://github.com/min955379-glitch/Mental-Maths-Practice-" target="_blank" rel="noopener noreferrer" class="flex justify-between p-2 rounded bg-slate-900/70 hover:bg-slate-800 text-slate-200 transition"><span>Mental-Maths-Practice-</span><span class="text-indigo-400">Repo &nearr;</span></a></li>
+            <li><a href="https://github.com/min955379-glitch/genvexa" target="_blank" rel="noopener noreferrer" class="flex justify-between p-2 rounded bg-slate-900/70 hover:bg-slate-800 text-slate-200 transition"><span>genvexa</span><span class="text-indigo-400">Repo &nearr;</span></a></li>
+            <li><a href="https://github.com/NematUllah9812/FYP-" target="_blank" rel="noopener noreferrer" class="flex justify-between p-2 rounded bg-slate-900/70 hover:bg-slate-800 text-slate-200 transition"><span>Terrastep (FYP-)</span><span class="text-emerald-400">Uni Repo &nearr;</span></a></li>
+          </ul>
+        </div>
+
+        <!-- Vercel Column -->
+        <div class="glass-card rounded-2xl p-6">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+            <h3 class="font-bold text-white">Vercel Production</h3>
+            <span class="text-xs font-mono text-emerald-400">3 Live Deployments</span>
+          </div>
+          <div class="space-y-3 text-xs">
+            <a href="https://my-english-practice-three.vercel.app" target="_blank" rel="noopener noreferrer" class="block p-3.5 rounded-xl bg-slate-900/80 border border-white/10 hover:border-indigo-500/40 transition">
+              <div class="flex justify-between font-mono font-bold text-white">
+                <span>My English Practice</span>
+                <span class="text-emerald-400">Production &nearr;</span>
+              </div>
+              <div class="text-slate-400 mt-1 font-mono">my-english-practice-three.vercel.app</div>
+            </a>
+
+            <a href="https://blue-peak-store.vercel.app" target="_blank" rel="noopener noreferrer" class="block p-3.5 rounded-xl bg-slate-900/80 border border-white/10 hover:border-indigo-500/40 transition">
+              <div class="flex justify-between font-mono font-bold text-white">
+                <span>Blue Peak store</span>
+                <span class="text-emerald-400">Production &nearr;</span>
+              </div>
+              <div class="text-slate-400 mt-1 font-mono">blue-peak-store.vercel.app</div>
+            </a>
+
+            <a href="https://review-nudge-alpha.vercel.app" target="_blank" rel="noopener noreferrer" class="block p-3.5 rounded-xl bg-slate-900/80 border border-white/10 hover:border-indigo-500/40 transition">
+              <div class="flex justify-between font-mono font-bold text-white">
+                <span>ReviewNudge</span>
+                <span class="text-emerald-400">Production &nearr;</span>
+              </div>
+              <div class="text-slate-400 mt-1 font-mono">review-nudge-alpha.vercel.app</div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Supabase Column -->
+        <div class="glass-card rounded-2xl p-6">
+          <div class="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+            <h3 class="font-bold text-white">Supabase Cloud (6 Projects)</h3>
+            <span class="text-xs font-mono text-indigo-400">PostgreSQL &amp; Edge</span>
+          </div>
+          <ul class="space-y-2.5 text-xs font-mono">
+            <li class="p-2.5 rounded-lg bg-slate-900/80 border border-emerald-500/30 flex justify-between items-center">
+              <span class="text-white">dailymb</span>
+              <span class="text-emerald-400 text-[11px]">Active · Production</span>
+            </li>
+            <li class="p-2.5 rounded-lg bg-slate-900/80 border border-emerald-500/30 flex justify-between items-center">
+              <span class="text-white">my-english-practice</span>
+              <span class="text-emerald-400 text-[11px]">Active · Production</span>
+            </li>
+            <li class="p-2.5 rounded-lg bg-slate-900/80 border border-white/10 flex justify-between items-center">
+              <span class="text-slate-200">blue-peak-store</span>
+              <span class="text-amber-400 text-[11px]">Paused · Full backup held</span>
+            </li>
+            <li class="p-2.5 rounded-lg bg-slate-900/80 border border-white/10 flex justify-between items-center">
+              <span class="text-slate-200">town-fitness-point</span>
+              <span class="text-amber-400 text-[11px]">Paused · Full backup held</span>
+            </li>
+            <li class="p-2.5 rounded-lg bg-slate-900/80 border border-white/10 flex justify-between items-center">
+              <span class="text-slate-400">ReviewNudge</span>
+              <span class="text-slate-500 text-[11px]">Inactive</span>
+            </li>
+            <li class="p-2.5 rounded-lg bg-slate-900/80 border border-white/10 flex justify-between items-center">
+              <span class="text-slate-400">arhms-ai-tool</span>
+              <span class="text-slate-500 text-[11px]">Inactive</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION & CONTACT SECTION -->
+  <section id="education" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <!-- Education -->
+        <div class="lg:col-span-5 glass-card rounded-2xl p-8">
+          <div class="text-xs font-mono uppercase tracking-widest text-indigo-400">Academic Foundation</div>
+          <h2 class="mt-2 text-2xl font-bold text-white">Education</h2>
+          <p class="mt-4 text-sm text-slate-300 leading-relaxed">
+            <strong class="text-white">Software Engineering student</strong>, with coursework including Web Technologies (HTML/CSS lab work delivered as clean, plain code with real output screenshots).
+          </p>
+        </div>
+
+        <!-- Contact -->
+        <div id="contact" class="lg:col-span-7 glass-card rounded-2xl p-8 border border-indigo-500/30">
+          <div class="text-xs font-mono uppercase tracking-widest text-indigo-400">Direct Channels</div>
+          <h2 class="mt-2 text-2xl font-bold text-white">Contact Muhammad Ibrahim</h2>
+          <p class="mt-2 text-sm text-slate-300">
+            Available for freelance full-stack web platforms, mobile apps, and custom digital product builds.
+          </p>
+
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-mono">
+            <a href="https://github.com/min955379-glitch" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900/90 border border-white/10 hover:border-indigo-500/50 transition block">
+              <div class="text-slate-400">GitHub</div>
+              <div class="text-white font-bold mt-1 break-all">github.com/min955379-glitch &nearr;</div>
+            </a>
+
+            <a href="https://wa.me/923485581969" target="_blank" rel="noopener noreferrer" class="p-4 rounded-xl bg-slate-900/90 border border-white/10 hover:border-emerald-500/50 transition block">
+              <div class="text-slate-400">WhatsApp (Business)</div>
+              <div class="text-emerald-400 font-bold mt-1">03485581969 &nearr;</div>
+            </a>
+
+            <div class="p-4 rounded-xl bg-slate-900/90 border border-white/10">
+              <div class="text-slate-400">Location</div>
+              <div class="text-white font-bold mt-1">Abbottabad, Pakistan</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 py-8 text-center text-xs text-slate-500 font-mono">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>Muhammad Ibrahim · Full-Stack Web &amp; Mobile Developer</div>
+      <div>Portfolio prepared on 15 October 2026. All repositories, Vercel deployments and Supabase projects verified live.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
