@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- DailyMB original mark: data drop + signal arc + check, amber sparkle. No letters, no operator branding. -->
+  <rect width="1024" height="1024" rx="180" fill="#0F766E"/>
+  <path d="M268 372 a300 300 0 0 1 74 -96" fill="none" stroke="#FFFFFF" stroke-width="36" stroke-linecap="round" opacity="0.55"/>
+  <path d="M512 252 C512 252 338 478 338 598 a174 174 0 0 0 348 0 C686 478 512 252 512 252 Z" fill="none" stroke="#FFFFFF" stroke-width="50" stroke-linejoin="round"/>
+  <path d="M424 600 L492 672 L606 552" fill="none" stroke="#FFFFFF" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M742 206 l15 42 42 15 -42 15 -15 42 -15 -42 -42 -15 42 -15 Z" fill="#F59E0B"/>
+</svg>
