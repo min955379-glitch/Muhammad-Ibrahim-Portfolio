@@ -36,14 +36,12 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-[80] transition-all duration-300",
-        scrolled
-          ? "glass-strong shadow-[0_10px_40px_-24px_rgba(2,3,10,0.9)]"
-          : "bg-transparent",
+        "fixed inset-x-0 top-0 z-[80] border-b border-[var(--glass-border)] bg-[var(--glass-bg-strong)] pt-[env(safe-area-inset-top,0px)] backdrop-blur-xl transition-shadow duration-300",
+        scrolled && "shadow-[0_10px_40px_-24px_rgba(2,3,10,0.9)]",
       )}
     >
       <div className="section-shell">
-        <div className="flex h-[68px] items-center justify-between gap-3">
+        <div className="flex h-[64px] items-center justify-between gap-3">
           {/* Brand — single row, never wraps */}
           <Link
             href="#top"
@@ -51,8 +49,9 @@ export function Header() {
             aria-label={`${siteConfig.name} — home`}
           >
             <BrandMark />
-            <span className="hidden min-w-0 truncate font-display text-[15px] font-semibold text-[var(--text)] sm:block">
-              {siteConfig.name}
+            <span className="min-w-0 truncate whitespace-nowrap font-display text-[13px] font-semibold text-[var(--text)] min-[380px]:text-[15px]">
+              <span className="min-[380px]:hidden">Muhammad I.</span>
+              <span className="hidden min-[380px]:inline">{siteConfig.name}</span>
             </span>
           </Link>
 
@@ -104,8 +103,7 @@ export function Header() {
 
             <a
               href="#contact"
-              className="hidden h-11 items-center rounded-[12px] px-4 text-[13px] font-semibold text-white shadow-[0_10px_26px_-14px_rgba(99,102,241,0.9)] sm:inline-flex"
-              style={{ background: "var(--brand-grad)" }}
+              className="hidden h-11 items-center whitespace-nowrap rounded-full bg-[var(--indigo)] px-4 text-sm font-semibold text-white sm:inline-flex"
             >
               {dict.common.hireMe}
             </a>

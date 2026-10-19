@@ -173,12 +173,12 @@ export function CommandPalette() {
 
   return (
     <>
-      {/* Floating trigger (mobile + desktop) */}
+      {/* Desktop trigger; mobile search is integrated into the bottom action bar. */}
       <button
         type="button"
         onClick={() => setPaletteOpen(true)}
         aria-label="Open command palette"
-        className="fixed bottom-5 right-4 z-[76] inline-flex h-12 items-center gap-2 rounded-[14px] border border-[var(--glass-border-strong)] bg-[var(--surface)]/85 px-4 text-[13px] font-semibold text-[var(--text)] shadow-[var(--shadow-lg)] backdrop-blur-xl transition-transform duration-200 hover:scale-[1.03] md:bottom-7 md:right-7"
+        className="command-palette-trigger fixed bottom-5 right-4 z-[76] hidden md:inline-flex h-12 items-center gap-2 rounded-[14px] border border-[var(--glass-border-strong)] bg-[var(--surface)]/85 px-4 text-[13px] font-semibold text-[var(--text)] shadow-[var(--shadow-lg)] backdrop-blur-xl transition-transform duration-200 hover:scale-[1.03] md:bottom-7 md:right-7"
       >
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden>
           <circle cx="11" cy="11" r="6.4" stroke="currentColor" strokeWidth="1.8" />
