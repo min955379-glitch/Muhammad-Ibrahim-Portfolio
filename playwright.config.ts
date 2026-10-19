@@ -24,15 +24,15 @@ export default defineConfig({
     },
     {
       name: "mobile-390",
-      use: { ...devices["iPhone 13"], viewport: { width: 390, height: 844 } },
+      use: { ...devices["iPhone 13"], browserName: "chromium", viewport: { width: 390, height: 844 } },
     },
     {
       name: "mobile-430",
-      use: { ...devices["iPhone 15 Pro Max"], viewport: { width: 430, height: 932 } },
+      use: { ...devices["iPhone 15 Pro Max"], browserName: "chromium", viewport: { width: 430, height: 932 } },
     },
     {
       name: "tablet-768",
-      use: { ...devices["iPad Mini"], viewport: { width: 768, height: 1024 } },
+      use: { ...devices["iPad Mini"], browserName: "chromium", viewport: { width: 768, height: 1024 } },
     },
     {
       name: "desktop-1440",
