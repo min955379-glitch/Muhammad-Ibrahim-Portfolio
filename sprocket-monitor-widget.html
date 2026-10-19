@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sprocket 720x1280 — Cycles GPU &amp; Procedural Monitor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600;700&family=Outfit:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* STRICT ZERO-GREEN PALETTE */
+    :root {
+      --bg: #04060E;
+      --surface: #0B1020;
+      --surface-elevated: #11182E;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.16);
+      --brand-indigo: #6366F1;
+      --brand-violet: #A855F7;
+      --brand-sky: #38BDF8;
+      --accent-amber: #F59E0B;
+      --accent-rose: #F43F5E;
+      --text-primary: #F8FAFC;
+      --text-muted: #94A3B8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      padding: 24px 16px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sprocket-shell {
+      width: 100%;
+      max-width: 1040px;
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: 22px;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+    }
+    @media (min-width: 820px) {
+      .sprocket-shell {
+        grid-template-columns: 1.15fr 0.85fr;
+        padding: 32px;
+        align-items: center;
+      }
+    }
+    .mono {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .kicker { color: var(--brand-violet); margin-bottom: 6px; display: block; }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(1.65rem, 4vw, 2.25rem);
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+    .lead {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .state-btn {
+      min-height: 46px;
+      padding: 0 14px;
+      border-radius: 12px;
+      background: var(--surface-elevated);
+      border: 1px solid var(--border-strong);
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+    .state-btn:hover {
+      border-color: var(--brand-sky);
+      color: var(--text-primary);
+    }
+    .state-btn.active {
+      background: var(--brand-indigo);
+      border-color: var(--brand-indigo);
+      color: #ffffff;
+      box-shadow: 0 8px 22px rgba(99, 102, 241, 0.35);
+    }
+    .controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(4, 6, 14, 0.55);
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+    }
+    .wire-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 600;
+      user-select: none;
+    }
+    .wire-toggle input {
+      accent-color: var(--brand-indigo);
+      width: 18px;
+      height: 18px;
+    }
+    .note-box {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid rgba(99, 102, 241, 0.28);
+      line-height: 1.5;
+    }
+    .note-box code {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--brand-sky);
+    }
+
+    /* 720x1280 Vertical Monitor Stage */
+    .monitor-frame {
+      width: 100%;
+      max-width: 290px;
+      aspect-ratio: 9 / 16;
+      margin: 0 auto;
+      border-radius: 22px;
+      background: #050814;
+      border: 2px solid var(--border-strong);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    }
+    .monitor-topbar {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      z-index: 6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 8px;
+      background: rgba(4, 6, 14, 0.86);
+      border: 1px solid var(--border);
+    }
+    .badge-mode {
+      padding: 2px 7px;
+      border-radius: 5px;
+      background: var(--brand-indigo);
+      color: #fff;
+      font-size: 0.65rem;
+    }
+    #sprocketVideo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 3;
+      display: none;
+    }
+    #sprocketCanvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      z-index: 2;
+    }
+    .monitor-bottombar {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+      z-index: 6;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(4, 6, 14, 0.88);
+      border: 1px solid var(--border);
+      text-align: center;
+      color: var(--brand-sky);
+    }
+  </style>
+</head>
+<body>
+  <section class="sprocket-shell" aria-label="Sprocket 720x1280 3D Monitor">
+    <div>
+      <span class="mono kicker">Blender 5.2 Python · Cycles GPU</span>
+      <h1>Sprocket Rig &amp; 3D Scenes</h1>
+      <p class="lead">
+        Includes <strong>The Great Desktop Migration</strong> (4.9s/frame), <strong>First Light v2</strong> (15s sunrise sprout with subsurface scattering), and <strong>Sprocket</strong> (720x1280 clay robot).
+      </p>
+
+      <div class="state-grid" role="group" aria-label="Sprocket animation states">
+        <button type="button" class="state-btn active" data-state="idle" data-title="Sprocket 720x1280 — Idle">
+          <span>01. Idle</span><span>●</span>
+        </button>
+        <button type="button" class="state-btn" data-state="wave" data-title="Sprocket 720x1280 — Wave">
+          <span>02. Wave</span><span>↗</span>
+        </button>
+        <button type="button" class="state-btn" data-state="walk" data-title="Sprocket 720x1280 — Walk">
+          <span>03. Walk</span><span>↗</span>
+        </button>
+        <button type="button" class="state-btn" data-state="jump-spin" data-title="Sprocket 720x1280 — Jump-Spin">
+          <span>04. Jump-Spin</span><span>↗</span>
+        </button>
+      </div>
+
+      <div class="controls-row">
+        <label class="wire-toggle">
+          <input type="checkbox" id="wireframeToggle" />
+          <span>Show wireframe</span>
+        </label>
+        <span class="mono" id="activeClipSubtitle" style="color:var(--accent-amber);">Sprocket 720x1280 — Idle</span>
+      </div>
+
+      <div class="note-box">
+        Drop the rendered clips at <code>/public/videos/sprocket-&lt;state&gt;.mp4</code> and the monitor switches from the procedural rig preview to the real Cycles output automatically.
+      </div>
+    </div>
+
+    <!-- 720x1280 Vertical Monitor -->
+    <div class="monitor-frame">
+      <div class="monitor-topbar mono">
+        <span>SPROCKET_720x1280</span>
+        <span class="badge-mode" id="renderSourceBadge">RENDER</span>
+      </div>
+
+      <!-- Automatically plays /public/videos/sprocket-<state>.mp4 if file exists -->
+      <video id="sprocketVideo" muted loop playsinline preload="metadata"></video>
+
+      <!-- Procedural 3D Rig Fallback + Wireframe Overlay -->
+      <canvas id="sprocketCanvas" width="360" height="640"></canvas>
+
+      <div class="monitor-bottombar mono" id="monitorFooterText">
+        SPROCKET 720X1280 — IDLE
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (() => {
+      const videoEl = document.getElementById('sprocketVideo');
+      const canvas = document.getElementById('sprocketCanvas');
+      const ctx = canvas.getContext('2d');
+      const wireToggle = document.getElementById('wireframeToggle');
+      const subEl = document.getElementById('activeClipSubtitle');
+      const footEl = document.getElementById('monitorFooterText');
+      const badgeEl = document.getElementById('renderSourceBadge');
+
+      let currentState = 'idle';
+      let showWire = false;
+      let usingRealMp4 = false;
+
+      const tryLoadMp4 = (state) => {
+        const src = `public/videos/sprocket-${state}.mp4`;
+        usingRealMp4 = false;
+        videoEl.style.display = 'none';
+        videoEl.src = src;
+        videoEl.load();
+
+        videoEl.onloadeddata = () => {
+          usingRealMp4 = true;
+          videoEl.style.display = 'block';
+          badgeEl.textContent = 'CYCLES MP4';
+          videoEl.play().catch(() => {});
+        };
+        videoEl.onerror = () => {
+          usingRealMp4 = false;
+          videoEl.style.display = 'none';
+          badgeEl.textContent = 'RENDER';
+        };
+      };
+
+      document.querySelectorAll('.state-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.state-btn').forEach((b) => b.classList.remove('active'));
+          btn.classList.add('active');
+          currentState = btn.getAttribute('data-state') || 'idle';
+          const title = btn.getAttribute('data-title') || '';
+          subEl.textContent = title;
+          footEl.textContent = title.toUpperCase();
+          tryLoadMp4(currentState);
+        });
+      });
+
+      wireToggle.addEventListener('change', (e) => {
+        showWire = e.target.checked;
+      });
+
+      tryLoadMp4('idle');
+
+      // Procedural 3D Clay Rig Renderer (Runs when MP4 is not yet dropped or Wireframe is on)
+      const renderLoop = (now) => {
+        const w = canvas.width, h = canvas.height;
+        const t = now * 0.004;
+        ctx.fillStyle = '#050814';
+        ctx.fillRect(0, 0, w, h);
+
+        // Perspective Floor Grid
+        ctx.strokeStyle = 'rgba(99, 102, 241, 0.16)';
+        ctx.lineWidth = 1;
+        for (let gx = -160; gx <= 160; gx += 40) {
+          ctx.beginPath();
+          ctx.moveTo(w / 2 + gx * 0.4, h * 0.68);
+          ctx.lineTo(w / 2 + gx * 1.5, h * 0.92);
+          ctx.stroke();
+        }
+
+        let bobY = Math.sin(t) * 8;
+        let rot = 0;
+        let waveAngle = 0.2;
+        let legSwing = 0;
+        let walkX = 0;
+
+        if (currentState === 'wave') {
+          waveAngle = Math.sin(t * 3.2) * 0.65 - 2.2;
+        } else if (currentState === 'walk') {
+          bobY = Math.abs(Math.sin(t * 2.6)) * -14;
+          legSwing = Math.sin(t * 2.6) * 18;
+          walkX = Math.sin(t * 1.3) * 24;
+        } else if (currentState === 'jump-spin') {
+          bobY = -Math.abs(Math.sin(t * 2.0)) * 68;
+          rot = Math.sin(t * 2.0) * 0.45;
+        }
+
+        ctx.save();
+        ctx.translate(w / 2 + walkX, h * 0.56 + bobY);
+        ctx.rotate(rot);
+
+        const drawPart = (x, y, pw, ph, fillHex, strokeHex) => {
+          if (!showWire) {
+            ctx.fillStyle = fillHex;
+            ctx.fillRect(x, y, pw, ph);
+          }
+          ctx.strokeStyle = showWire ? '#38BDF8' : strokeHex;
+          ctx.lineWidth = showWire ? 1.8 : 1.2;
+          ctx.strokeRect(x, y, pw, ph);
+          if (showWire) {
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x + pw, y + ph);
+            ctx.stroke();
+          }
+        };
+
+        // Antenna
+        ctx.strokeStyle = '#F59E0B';
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(0, -110);
+        ctx.lineTo(0, -138);
+        ctx.stroke();
+        ctx.fillStyle = '#38BDF8';
+        ctx.beginPath();
+        ctx.arc(0, -144, 8, 0, Math.PI * 2);
+        if (showWire) ctx.stroke(); else ctx.fill();
+
+        // Head
+        drawPart(-52, -110, 104, 72, '#A855F7', '#C084FC');
+
+        // Eyes
+        ctx.fillStyle = '#38BDF8';
+        ctx.beginPath();
+        ctx.arc(-20, -74, 9, 0, Math.PI * 2);
+        ctx.arc(20, -74, 9, 0, Math.PI * 2);
+        if (showWire) ctx.stroke(); else ctx.fill();
+
+        // Torso
+        drawPart(-44, -28, 88, 86, '#6366F1', '#818CF8');
+
+        // Legs
+        drawPart(-30, 62 + legSwing * 0.4, 22, 42, '#A855F7', '#C084FC');
+        drawPart(8, 62 - legSwing * 0.4, 22, 42, '#A855F7', '#C084FC');
+
+        // Left Arm
+        drawPart(-74, -20 - legSwing * 0.3, 24, 54, '#F59E0B', '#FBBF24');
+
+        // Right Arm (Animated Wave)
+        ctx.save();
+        ctx.translate(50, -14);
+        ctx.rotate(waveAngle);
+        drawPart(0, -10, 24, 54, '#F59E0B', '#FBBF24');
+        ctx.restore();
+
+        ctx.restore();
+        requestAnimationFrame(renderLoop);
+      };
+      requestAnimationFrame(renderLoop);
+    })();
+  </script>
+</body>
+</html>
