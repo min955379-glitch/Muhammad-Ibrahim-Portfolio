@@ -1,0 +1,122 @@
+[
+  {
+    "viewport": 360,
+    "scrollWidth": 360,
+    "headerHeight": 65,
+    "badgeTop": 100,
+    "headerBottom": 65,
+    "ctas": [
+      {
+        "width": 320,
+        "height": 52,
+        "text": "Explore Live Websites↗",
+        "scrollWidth": 320,
+        "clientWidth": 320
+      },
+      {
+        "width": 320,
+        "height": 52,
+        "text": "Download DailyMB APK↓",
+        "scrollWidth": 320,
+        "clientWidth": 320
+      },
+      {
+        "width": 320,
+        "height": 52,
+        "text": "Play Cyber-Nova↗",
+        "scrollWidth": 318,
+        "clientWidth": 318
+      }
+    ]
+  },
+  {
+    "viewport": 390,
+    "scrollWidth": 390,
+    "headerHeight": 65,
+    "badgeTop": 100,
+    "headerBottom": 65,
+    "ctas": [
+      {
+        "width": 350,
+        "height": 52,
+        "text": "Explore Live Websites↗",
+        "scrollWidth": 350,
+        "clientWidth": 350
+      },
+      {
+        "width": 350,
+        "height": 52,
+        "text": "Download DailyMB APK↓",
+        "scrollWidth": 350,
+        "clientWidth": 350
+      },
+      {
+        "width": 350,
+        "height": 52,
+        "text": "Play Cyber-Nova↗",
+        "scrollWidth": 348,
+        "clientWidth": 348
+      }
+    ]
+  },
+  {
+    "viewport": 430,
+    "scrollWidth": 430,
+    "headerHeight": 65,
+    "badgeTop": 100,
+    "headerBottom": 65,
+    "ctas": [
+      {
+        "width": 390,
+        "height": 52,
+        "text": "Explore Live Websites↗",
+        "scrollWidth": 390,
+        "clientWidth": 390
+      },
+      {
+        "width": 390,
+        "height": 52,
+        "text": "Download DailyMB APK↓",
+        "scrollWidth": 390,
+        "clientWidth": 390
+      },
+      {
+        "width": 390,
+        "height": 52,
+        "text": "Play Cyber-Nova↗",
+        "scrollWidth": 388,
+        "clientWidth": 388
+      }
+    ]
+  },
+  {
+    "viewport": 1440,
+    "scrollWidth": 1440,
+    "headerHeight": 65,
+    "badgeTop": 188.53125,
+    "headerBottom": 65,
+    "ctas": [
+      {
+        "width": 226.28125,
+        "height": 52,
+        "text": "Explore Live Websites↗",
+        "scrollWidth": 226,
+        "clientWidth": 226
+      },
+      {
+        "width": 234.875,
+        "height": 52,
+        "text": "Download DailyMB APK↓",
+        "scrollWidth": 235,
+        "clientWidth": 235
+      },
+      {
+        "width": 187.1875,
+        "height": 52,
+        "text": "Play Cyber-Nova↗",
+        "scrollWidth": 185,
+        "clientWidth": 185
+      }
+    ]
+  }
+]
