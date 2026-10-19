@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 type Accent = "indigo" | "violet" | "sky" | "rose" | "amber";
 
 export const accentVar: Record<Accent, string> = {
-  indigo: "var(--indigo)",
+  indigo: "var(--indigo-text)",
   violet: "var(--violet)",
   sky: "var(--sky)",
   rose: "var(--rose)",
@@ -58,7 +58,7 @@ export function SectionHeading({
           className="h-px w-10"
           style={{ background: accentVar[accent] }}
         />
-        <span className="eyebrow text-[var(--text-2)]">{label}</span>
+        <span className="eyebrow hidden text-[var(--text-2)] sm:inline">{label}</span>
       </div>
       <h2 className="max-w-3xl text-[clamp(1.75rem,5vw,2.75rem)] font-bold leading-[1.08] text-[var(--text)]">
         {title}

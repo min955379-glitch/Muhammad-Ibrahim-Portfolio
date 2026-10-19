@@ -47,7 +47,7 @@ export function Tabs({
         role="tablist"
         aria-label="Interactive selector"
         className={cn(
-          "no-scrollbar flex gap-2 overflow-x-auto pb-1",
+          "no-scrollbar flex snap-x snap-mandatory gap-2 overflow-x-auto pb-1",
           variant === "pill" &&
             "rounded-2xl border border-[var(--glass-border)] bg-[var(--glass)] p-1.5",
           variant === "underline" &&
@@ -67,7 +67,7 @@ export function Tabs({
               aria-controls={`${baseId}-panel-${item.id}`}
               onClick={() => setActiveId(item.id)}
               className={cn(
-                "relative shrink-0 rounded-xl px-4 py-2.5 text-[13px] font-semibold whitespace-nowrap transition-colors duration-300 sm:text-sm",
+                "relative min-h-11 shrink-0 snap-start rounded-xl px-4 py-2.5 text-[13px] font-semibold whitespace-nowrap transition-colors duration-300 sm:text-sm",
                 variant === "underline" && "rounded-none px-3 sm:px-4",
                 isActive
                   ? "text-white"
@@ -89,6 +89,7 @@ export function Tabs({
               ) : null}
               <span className="hidden sm:inline">{item.label}</span>
               <span className="sm:hidden">{item.label.split(" ").slice(0, 2).join(" ")}</span>
+              {isActive ? <span aria-hidden className="absolute bottom-0 left-4 right-4 h-0.5 rounded-full bg-white" /> : null}
               <span className="sr-only sm:hidden">
                 {index >= 0 ? ` (${index + 1} of ${items.length})` : ""}
               </span>
