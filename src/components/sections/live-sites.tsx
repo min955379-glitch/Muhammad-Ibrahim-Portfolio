@@ -19,7 +19,7 @@ export async function LiveSites() {
       <SectionShell>
         <Reveal>
           <SectionHeading
-            index="01 // LIVE DEPLOYMENTS (INDIGO)"
+            index="01 // LIVE DEPLOYMENTS"
             label="Live Sites"
             title="Interactive Live Previews"
             subtitle="Tap any project tab below to inspect its live production preview and launch it in a new tab. Status is probed from the server — not a static badge."

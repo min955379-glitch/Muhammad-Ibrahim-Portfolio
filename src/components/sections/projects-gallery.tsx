@@ -7,7 +7,7 @@ import type { Project } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
 const accentColor = {
-  indigo: "var(--indigo)",
+  indigo: "var(--indigo-text)",
   violet: "var(--violet)",
   sky: "var(--sky)",
   rose: "var(--rose)",

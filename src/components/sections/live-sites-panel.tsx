@@ -38,7 +38,7 @@ function StatusPill({ status }: { status: SiteStatus | null }) {
       />
       {status.online ? "LIVE" : "DOWN"}
       {status.latencyMs !== null ? (
-        <span className="opacity-70">· {formatLatency(status.latencyMs)}</span>
+        <span>· {formatLatency(status.latencyMs)}</span>
       ) : null}
     </span>
   );
@@ -46,6 +46,7 @@ function StatusPill({ status }: { status: SiteStatus | null }) {
 
 export function LiveSitesPanel({ items }: { items: Item[] }) {
   const [activeId, setActiveId] = useState(items[0]?.site.id);
+  const [copiedUrl, setCopiedUrl] = useState<string | null>(null);
 
   const tabs = items.map(({ site, status }) => ({
     id: site.id,
@@ -60,9 +61,12 @@ export function LiveSitesPanel({ items }: { items: Item[] }) {
               </h3>
               <StatusPill status={status} />
             </div>
-            <p className="mt-2 break-all font-mono text-[12px] text-[var(--text-3)]">
-              {site.url}
-            </p>
+            <div className="mt-2 flex min-w-0 max-w-full items-center gap-2">
+              <span className="min-w-0 flex-1 overflow-hidden text-ellipsis whitespace-nowrap font-mono text-xs text-[var(--text-secondary)]" title={site.url}>{site.url}</span>
+              <button type="button" className="grid h-11 w-11 shrink-0 place-items-center rounded-lg border border-[var(--glass-border)] text-xs text-[var(--text-secondary)]" aria-label={`Copy ${site.label} URL`} onClick={async () => {
+                try { await navigator.clipboard.writeText(site.url); setCopiedUrl(site.id); window.setTimeout(() => setCopiedUrl(null), 2000); } catch { /* clipboard may be blocked */ }
+              }}>{copiedUrl === site.id ? "✓" : "Copy"}</button>
+            </div>
             {status?.statusCode ? (
               <p className="mt-1 font-mono text-[11px] text-[var(--text-3)]">
                 HTTP {status.statusCode} · checked{" "}
@@ -121,7 +125,8 @@ export function LiveSitesPanel({ items }: { items: Item[] }) {
 
   return (
     <div className="mt-9">
-      <Tabs
+      <p className="mb-2 text-right font-mono text-xs text-[var(--text-secondary)]" aria-live="polite">{Math.max(1, items.findIndex(({ site }) => site.id === activeId) + 1)}/{items.length}</p>
+      <Tabs className="live-sites-tabs"
         items={tabs}
         onActiveChange={setActiveId}
         activeId={activeId}

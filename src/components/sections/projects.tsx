@@ -31,7 +31,7 @@ export function Projects() {
                     style={{
                       color:
                         project.accent === "indigo"
-                          ? "var(--indigo)"
+                          ? "var(--indigo-text)"
                           : project.accent === "violet"
                             ? "var(--violet)"
                             : project.accent === "sky"
