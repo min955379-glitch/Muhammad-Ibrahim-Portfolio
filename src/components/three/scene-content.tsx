@@ -37,31 +37,31 @@ function TechKnot({
     // Scroll morphs the knot and pushes it deeper into the page.
     groupRef.rotation.x = t * 0.14 + state.pointer.y * 0.32 + progress * 1.5;
     groupRef.rotation.y = t * 0.2 + state.pointer.x * 0.45 + progress * 2.2;
-    const scale = 1 + Math.sin(t * 0.8) * 0.045 - progress * 0.32;
-    groupRef.scale.setScalar(scale);
-    groupRef.position.y = Math.sin(t * 0.55) * 0.16 - progress * 1.1;
+    // Keep the accent under 45% of the viewport, at the lower-right.
+    const baseScale = Math.min(viewport.width * 0.13, viewport.height * 0.14);
+    groupRef.scale.setScalar(baseScale * (1 + Math.sin(t * 0.8) * 0.025));
+    groupRef.position.set(viewport.width * 0.23, -viewport.height * 0.25 - progress * 0.35, -2);
 
     if (core.current) {
       const material = core.current.material as THREE.MeshStandardMaterial;
-      const pulse = 0.55 + Math.sin(t * 1.6) * 0.18;
-      material.emissiveIntensity = 0.9 + pulse;
+      material.emissiveIntensity = 0.13 + Math.sin(t * 1.6) * 0.03;
     }
     if (shell.current) {
       shell.current.rotation.z = -t * 0.12;
       const material = shell.current.material as THREE.MeshBasicMaterial;
-      material.opacity = 0.16 + Math.sin(t * 1.1) * 0.06;
+      material.opacity = 0.19 + Math.sin(t * 1.1) * 0.02;
     }
   });
 
   return (
-    <group ref={group} scale={Math.min(viewport.width, viewport.height) / 7.2}>
+    <group ref={group} position={[viewport.width * 0.23, -viewport.height * 0.25, -2]} scale={Math.min(viewport.width * 0.13, viewport.height * 0.14)}>
       <mesh ref={core} geometry={geometry} castShadow={false} receiveShadow={false}>
         <meshStandardMaterial
           color="#1b2350"
           roughness={0.16}
           metalness={0.92}
           emissive="#6366F1"
-          emissiveIntensity={1}
+          emissiveIntensity={0.13}
           flatShading={false}
         />
       </mesh>
@@ -82,7 +82,7 @@ function TechKnot({
         <meshStandardMaterial
           color="#38BDF8"
           emissive="#38BDF8"
-          emissiveIntensity={1.6}
+          emissiveIntensity={0.24}
           roughness={0.1}
           metalness={0.4}
           transparent
@@ -161,37 +161,18 @@ function Particles({
   );
 }
 
-/** Large soft halo behind the knot. */
-function Halo() {
-  return (
-    <mesh position={[0, 0, -2.4]}>
-      <circleGeometry args={[4.2, 64]} />
-      <meshBasicMaterial
-        color="#6366F1"
-        transparent
-        opacity={0.09}
-        blending={THREE.AdditiveBlending}
-        depthWrite={false}
-      />
-    </mesh>
-  );
-}
-
 export function SceneContent(props: SceneContentProps) {
   const { quality } = props;
 
   return (
     <>
-      <ambientLight intensity={0.55} color="#8ea2ff" />
-      <directionalLight position={[4, 6, 5]} intensity={1.4} color="#cdd8ff" />
-      <pointLight position={[-4, -2, 4]} intensity={22} color="#A855F7" distance={16} />
-      <pointLight position={[3.5, 2.5, 3]} intensity={18} color="#38BDF8" distance={14} />
-      <pointLight position={[0, -4, 2]} intensity={10} color="#6366F1" distance={12} />
-
-      <Halo />
+      <ambientLight intensity={0.18} color="#8ea2ff" />
+      <directionalLight position={[4, 6, 5]} intensity={0.8} color="#cdd8ff" />
+      <pointLight position={[-4, -2, 4]} intensity={1.8} color="#A855F7" distance={9} />
+      <pointLight position={[3.5, 2.5, 3]} intensity={1.4} color="#38BDF8" distance={9} />
       <TechKnot {...props} />
-      <Particles count={quality.particles} color="#A855F7" spread={11} />
-      <Particles count={quality.starCount} color="#38BDF8" spread={16} speed={0.08} />
+      <Particles count={quality.tier === "high" ? quality.particles : 0} color="#A855F7" spread={11} />
+      <Particles count={quality.tier === "high" ? quality.starCount : 0} color="#38BDF8" spread={16} speed={0.08} />
     </>
   );
 }

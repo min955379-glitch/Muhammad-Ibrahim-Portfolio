@@ -16,25 +16,26 @@ const HeroScene = dynamic(() => import("@/components/three/hero-scene"), {
  */
 export function ScenePoster() {
   return (
-    <div
-      aria-hidden
-      className="pointer-events-none absolute inset-0 overflow-hidden"
-    >
-      <div
-        className="absolute left-1/2 top-1/2 h-[min(70vw,520px)] w-[min(70vw,520px)] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-70"
-        style={{
-          background:
-            "radial-gradient(circle at 40% 35%, rgba(99,102,241,0.55), rgba(168,85,247,0.34) 42%, rgba(56,189,248,0.18) 62%, transparent 74%)",
-          filter: "blur(14px)",
-        }}
-      />
-      <div
-        className="absolute left-1/2 top-1/2 h-[min(42vw,300px)] w-[min(42vw,300px)] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[var(--glass-border-strong)]"
-        style={{
-          background:
-            "conic-gradient(from 140deg, rgba(99,102,241,0.32), rgba(168,85,247,0.24), rgba(56,189,248,0.18), rgba(99,102,241,0.32))",
-        }}
-      />
+    <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-[#04060E]">
+      {/* Static wireframe torus: inexpensive accent for data-saver / low-power devices. */}
+      <svg
+        className="absolute right-[-5%] top-[58%] h-[min(45vw,220px)] w-[min(45vw,220px)] opacity-80 md:right-[5%] md:top-[45%] md:h-[300px] md:w-[300px]"
+        viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <radialGradient id="poster-glow"><stop stopColor="#6366F1" stopOpacity=".22"/><stop offset="1" stopColor="#6366F1" stopOpacity="0"/></radialGradient>
+          <linearGradient id="poster-line" x1="20" y1="30" x2="210" y2="190"><stop stopColor="#6366F1"/><stop offset=".55" stopColor="#A855F7"/><stop offset="1" stopColor="#38BDF8"/></linearGradient>
+        </defs>
+        <circle cx="110" cy="110" r="105" fill="url(#poster-glow)" />
+        <g stroke="url(#poster-line)" strokeWidth="1.4" opacity=".78">
+          <ellipse cx="110" cy="110" rx="89" ry="35" transform="rotate(-28 110 110)" />
+          <ellipse cx="110" cy="110" rx="89" ry="35" transform="rotate(28 110 110)" />
+          <ellipse cx="110" cy="110" rx="89" ry="35" transform="rotate(88 110 110)" />
+          <ellipse cx="110" cy="110" rx="68" ry="25" transform="rotate(-28 110 110)" opacity=".7" />
+          <ellipse cx="110" cy="110" rx="68" ry="25" transform="rotate(28 110 110)" opacity=".7" />
+          <ellipse cx="110" cy="110" rx="68" ry="25" transform="rotate(88 110 110)" opacity=".7" />
+        </g>
+      </svg>
     </div>
   );
 }
@@ -50,6 +51,5 @@ export function HeroSceneLoader() {
     return () => window.cancelAnimationFrame(frame);
   }, [reduceMotion]);
 
-  if (skip) return <ScenePoster />;
-  return <HeroScene />;
+  return <><ScenePoster />{!skip && <HeroScene />}</>;
 }

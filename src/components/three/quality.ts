@@ -89,7 +89,7 @@ export function detectQuality(): QualityProfile {
 export function shouldSkip3D() {
   if (typeof window === "undefined") return true;
   const nav = navigator as NavigatorWithHints;
-  if (nav.connection?.saveData) return true;
+  if (nav.connection?.saveData || (nav.deviceMemory ?? 8) <= 4) return true;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return true;
   return false;
 }
