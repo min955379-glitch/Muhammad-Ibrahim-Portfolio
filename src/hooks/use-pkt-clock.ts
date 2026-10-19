@@ -16,7 +16,7 @@ export type PktClock = {
  */
 export function usePktClock(): PktClock {
   const [clock, setClock] = useState<PktClock>({
-    time: "--:--:--",
+    time: "Loading",
     date: "—",
     ready: false,
   });
