@@ -147,7 +147,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <SmoothScroll />
             <Header />
 
-            <main id="main-content" className="relative">
+            <main id="main-content" className="relative pt-[calc(var(--header-h)+env(safe-area-inset-top,0px))] pb-[calc(88px+env(safe-area-inset-bottom,0px))] md:pb-0">
               {children}
             </main>
 
